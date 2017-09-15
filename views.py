@@ -11,11 +11,11 @@ import codecs
 sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
-# foursquare_client_id = ''
+foursquare_client_id = 'OBNNEB0ELVH2RJLJKBUGCYU25EJ2KKOCIYC0CYX25XZ1LDUG'
 
-# foursquare_client_secret = ''
+foursquare_client_secret = '5CMBNN3VHMYTYJJHNTF2CBI2DUJCUIEFPV3MSP4OWTMEOL4X'
 
-# google_api_key = ''
+google_api_key = 'AIzaSyDrQ143pmSUD4d8-IXhogfrIOiTo1UGgCE'
 
 engine = create_engine('sqlite:///restaruants.db')
 
@@ -78,5 +78,3 @@ def restaurant_handler(id):
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
-
-
