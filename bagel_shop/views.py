@@ -17,7 +17,11 @@ app = Flask(__name__)
 
 # ADD @auth.verify_password here
 @auth.verify_password
-def verify_password(username, password):
+def verify_password(username_or_token, password):
+    # Check if it's a token
+    user_id = User.verify_auth_token((username_or_token))
+    if user_id:
+
     user = session.query(User).filter_by(username=username).first()
     if not user:
         print("User not found")
@@ -29,10 +33,15 @@ def verify_password(username, password):
     g.user = user
     return True
 
+@app.route('/token')
+@auth.login_required
+def get_auth_token():
+    token = g.user.generate_auth_token()
+    return jsonify({'token': token.decode('ascii')})
 
 # ADD a /users route here
 @app.route('/users', methods=['POST'])
-def users():
+def new_user():
     username = request.json.get('username')
     password = request.json.get('password')
     if username is None or password is None:
