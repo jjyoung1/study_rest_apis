@@ -93,7 +93,7 @@ except Exception as err:
     print err.args
     sys.exit()
 else:
-    print content
+    #print content
     print "Text 5 PASS: Succesfully retrieved products"
 
 # TEST 6: TRY TO VIEW A SPECIFIC CATEGORY OF PRODUCTS
@@ -109,6 +109,6 @@ except Exception as err:
     print err.args
     sys.exit()
 else:
-    print content
+    #print content
     print "Text 6 PASS: Succesfully retrieved fruit"
 
