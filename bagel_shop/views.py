@@ -21,8 +21,10 @@ def verify_password(username_or_token, password):
     # Check if it's a token
     user_id = User.verify_auth_token((username_or_token))
     if user_id:
+        user = session.query(User).filter_by(username=username_or_token).first()
+    else:
+        user = None
 
-    user = session.query(User).filter_by(username=username).first()
     if not user:
         print("User not found")
         return False
