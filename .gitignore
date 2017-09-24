@@ -6,6 +6,14 @@
 bagel_shop/bagelShop.db
 restaruants.db
 
+# Vagrant stuff
+acceptance_config.yml
+boxes/*
+/.vagrant
+/website/.vagrant
+/website/build
+/vagrant-spec.config.rb
+
 # User-specific stuff:
 .idea/**/workspace.xml
 .idea/**/tasks.xml
